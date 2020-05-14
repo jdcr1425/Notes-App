@@ -22,7 +22,7 @@ notesCtrl.createNewNote = async (req, res)=>{
 
 notesCtrl.renderNotes = async (req, res)=>{
     
-    const notes = await Note.find({user:req.user_id}).sort({createdAt:'desc'}).lean();
+    const notes = await Note.find({user:req.user._id}).sort({createdAt:'desc'}).lean();
     res.render('notes/all_notes', {notes});
 };
 
